@@ -19,7 +19,7 @@
 [![Status](https://img.shields.io/badge/Status-v1.0%20Beta-2ea043?style=for-the-badge)]()
 [![Tests](https://img.shields.io/badge/Tests-727%20passing-2ea043?style=for-the-badge)]()
 
- The name **Verum** was inspired by the name of my beloved girlfriend.
+ The name **Verum** comes from the *Grimorium Verum*.
 
 
 </div>

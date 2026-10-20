@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Registra (ou remove) as tarefas agendadas da Verum Search no Windows.
+    Registra (ou remove) as tarefas agendadas do Verum Search no Windows.
 
 .DESCRIPTION
     Cinco tarefas, todas em \Verum\ no Agendador de Tarefas:

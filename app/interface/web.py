@@ -315,7 +315,7 @@ def _pagina_entrada(erro: str = "") -> bytes:
         '<label class="olho" for="codigo">C\u00f3digo de acesso</label>'
         '<div class="entrada-linha">'
         f'<input class="codigo{classe}" id="codigo" type="text" name="codigo" '
-        'placeholder="EX.: MADA-24" autofocus autocomplete="off">'
+        'placeholder="EX.: K7QP-3M2X" autofocus autocomplete="off">'
         '<button class="botao-solido" type="submit">Entrar'
         f'{icones.svg("seta-dir", 16)}</button>'
         "</div>"
