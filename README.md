@@ -263,8 +263,8 @@ Measured in practice:
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/EduhxH/Mada-Web-SE.git
-cd Mada-Web-SE
+git clone https://github.com/EduhxH/Verum-Search.git
+cd Verum-Search
 ```
 
 **2. Set up the environment**
@@ -571,7 +571,7 @@ and the old queries would stay readable in them with a hex editor.
 ## 📂 Project Structure
 
 ```
-Mada-Web-SE/
+Verum-Search/
 ├── app/
 │   ├── crawler/
 │   │   ├── web_source.py        # BFS crawler: frontier, robots.txt, sitemap, PDFs
