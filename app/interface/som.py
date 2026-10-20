@@ -115,7 +115,7 @@ GUIAO = """
     }
   }
 
-  window.somMadalena = tocar;
+  window.somVerum = tocar;
 
   // Um so ouvinte na raiz em vez de um por elemento: os resultados sao
   // refeitos a cada pagina e as sugestoes a cada tecla, e ligar ouvintes a

@@ -258,7 +258,7 @@ def tunel_responde(endereco: str) -> bool:
     ausencia de resposta e que e falha.
     """
     pedido = urllib.request.Request(endereco + "/robots.txt", method="GET")
-    pedido.add_header("User-Agent", "MadalenaVigia/1.0")
+    pedido.add_header("User-Agent", "VerumVigia/1.0")
     try:
         with urllib.request.urlopen(pedido, timeout=20) as resposta:
             return resposta.status < 500

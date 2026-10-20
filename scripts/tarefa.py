@@ -170,7 +170,7 @@ def correr(passo: str, etiqueta: str = "", raiz: Path = RAIZ) -> int:
 
 def main() -> int:
     analisador = argparse.ArgumentParser(
-        description="Um passo de manutencao da Madalena Search."
+        description="Um passo de manutencao da Verum Search."
     )
     analisador.add_argument("passo", choices=sorted(PASSOS))
     analisador.add_argument(

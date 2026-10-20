@@ -159,7 +159,7 @@ def pagina(conexao, administrador: bool = False) -> str:
     com a navegacao ao lado.
     """
     return (
-        f"{estilo.cabeca('Madalena - estatísticas')}\n"
+        f"{estilo.cabeca('Verum - estatísticas')}\n"
         "<body>\n"
         '<header class="topo"><div class="topo-linha">'
         f"{estilo.marca()}"

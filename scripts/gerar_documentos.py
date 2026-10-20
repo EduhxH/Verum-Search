@@ -1,4 +1,4 @@
-"""Gera os PDFs dos documentos publicos, com a marca do Madalena.
+"""Gera os PDFs dos documentos publicos, com a marca do Verum.
 
 **Escrito a mao, sem biblioteca de PDF.** Nao ha reportlab nem weasyprint no
 projeto e nao vale a pena acrescenta-los por dois documentos: um PDF de texto
@@ -354,7 +354,7 @@ class Documento:
         fluxos = []
         for numero, fluxo in enumerate(self.paginas, start=1):
             copia = list(fluxo)
-            rodape = f"{VERSAO}   ·   Madalena Search   ·   {numero}/{total}"
+            rodape = f"{VERSAO}   ·   Verum Search   ·   {numero}/{total}"
             copia.append(
                 b"BT /F1 7.5 Tf 0.55 g "
                 + f"{MARGEM:.1f} {(BASE - 22):.1f} Td".encode("ascii")
@@ -420,7 +420,7 @@ class Documento:
 
         id_info = junta(
             b"<< /Title (" + _texto_pdf(self.titulo) + b") "
-            b"/Author (Madalena Search) /Creator (Madalena Search) >>"
+            b"/Author (Verum Search) /Creator (Verum Search) >>"
         )
         id_raiz = junta(
             b"<< /Type /Catalog /Pages " + str(id_real_paginas).encode() + b" 0 R >>"
@@ -494,18 +494,18 @@ def _proporcao_logo() -> float:
 def politica_privacidade() -> Documento:
     d = Documento(
         "Política de Privacidade e Cookies",
-        "Madalena Search \u2014 motor de busca do material da ESCO",
+        "Verum Search \u2014 motor de busca do material da ESCO",
     )
 
     d.nota(
-        "Este documento descreve o que o Madalena regista, porque o faz e durante "
+        "Este documento descreve o que o Verum regista, porque o faz e durante "
         "quanto tempo. Está escrito para ser lido por alunos e encarregados de "
         "educação, e não por juristas."
     )
 
     d.titulo_seccao("1. Quem trata os teus dados")
     d.paragrafo(
-        f"O Madalena é um projeto escolar desenvolvido por {RESPONSAVEL}. Neste "
+        f"O Verum é um projeto escolar desenvolvido por {RESPONSAVEL}. Neste "
         "momento é um piloto fechado, com um número reduzido de participantes "
         "convidados, e não está aberto ao público."
     )
@@ -513,7 +513,7 @@ def politica_privacidade() -> Documento:
 
     d.titulo_seccao("2. O que fica registado quando pesquisas")
     d.paragrafo(
-        "Sempre que fazes uma pesquisa ou abres um documento, o Madalena guarda "
+        "Sempre que fazes uma pesquisa ou abres um documento, o Verum guarda "
         "uma linha com:"
     )
     d.item("o rótulo que te foi atribuído (aluno-01, aluno-02, ...);")
@@ -537,7 +537,7 @@ def politica_privacidade() -> Documento:
     d.item("Não há cookies de publicidade, de análise, nem de terceiros.")
     d.item("Não há recolha de dados do dispositivo, do navegador nem do ecrã.")
     d.item(
-        "Não há partilha com nenhuma empresa. O Madalena não chama serviço "
+        "Não há partilha com nenhuma empresa. O Verum não chama serviço "
         "externo nenhum \u2014 nem sequer para ir buscar tipos de letra."
     )
 
@@ -562,9 +562,9 @@ def politica_privacidade() -> Documento:
     )
 
     d.titulo_seccao("6. Cookies")
-    d.paragrafo("O Madalena usa um cookie, e mais nenhum:")
+    d.paragrafo("O Verum usa um cookie, e mais nenhum:")
     d.item(
-        "madalena \u2014 guarda que entraste, para não teres de escrever o código em "
+        "verum \u2014 guarda que entraste, para não teres de escrever o código em "
         "cada página. Contém o teu rótulo, a hora de entrada e uma assinatura que "
         "impede que seja falsificado. Dura 30 dias. Não pode ser lido pelo "
         "JavaScript da página nem usado por outros sites."
@@ -660,7 +660,7 @@ def pedido_remocao() -> Documento:
 
     d.campo(
         "Documento",
-        "Título ou endereço do documento no Madalena. Se forem vários, lista-os "
+        "Título ou endereço do documento no Verum. Se forem vários, lista-os "
         "todos.",
     )
     d.campo(
@@ -732,24 +732,24 @@ ECRAS = RAIZ / "assets" / "manual"
 def manual_utilizador() -> Documento:
     d = Documento(
         "Manual do utilizador",
-        "Madalena Search \u2014 como procurar material da escola",
+        "Verum Search \u2014 como procurar material da escola",
     )
 
     d.paragrafo(
-        "O Madalena procura dentro de tudo o que a escola publica: horários, "
+        "O Verum procura dentro de tudo o que a escola publica: horários, "
         "fichas, planificações, regulamentos e as páginas do site. Procura no "
         "texto dos ficheiros e não só no nome deles \u2014 por isso encontra uma "
         "página no meio de um PDF de duzentas."
     )
     d.nota(
-        "O Madalena não publica nada de novo: só encontra o que a escola já "
+        "O Verum não publica nada de novo: só encontra o que a escola já "
         "publicou. Um documento que não esteja no Moodle nem no site não existe "
         "aqui, e cada resultado mostra onde está o original."
     )
 
     d.titulo_seccao("Porque é que o documento abre aqui")
     d.paragrafo(
-        "Ao princípio o Madalena era só um catálogo: mandava-te para o Moodle e "
+        "Ao princípio o Verum era só um catálogo: mandava-te para o Moodle e "
         "acabava aí. Os primeiros a usá-lo queixaram-se, e tinham razão \u2014 o "
         "Moodle serve o material das pastas para <b>descarregar</b>, não para "
         "ler, e exige sessão iniciada. Em muitos casos nem sequer te levava ao "
@@ -757,7 +757,7 @@ def manual_utilizador() -> Documento:
         "a pesquisa tinha encontrado perdia-se ali."
     )
     d.paragrafo(
-        "Por isso o Madalena passou a mostrar a sua própria cópia: abre no "
+        "Por isso o Verum passou a mostrar a sua própria cópia: abre no "
         "browser, abre na página certa, e não te pede para entrar em lado "
         "nenhum. Três coisas continuam iguais, e são as que importam:"
     )
@@ -767,10 +767,10 @@ def manual_utilizador() -> Documento:
     )
     d.item(
         "<b>Nada sai desta máquina.</b> A cópia vive no computador onde o "
-        "Madalena corre, atrás do código de acesso. Não há nuvem."
+        "Verum corre, atrás do código de acesso. Não há nuvem."
     )
     d.item(
-        "<b>Só existe aqui o que a escola publicou.</b> O Madalena não "
+        "<b>Só existe aqui o que a escola publicou.</b> O Verum não "
         "acrescenta material nenhum, e um documento retirado do índice tem a "
         "cópia apagada com ele."
     )
@@ -864,7 +864,7 @@ def manual_utilizador() -> Documento:
     )
     d.item(
         "<b>Erros de escrita são corrigidos.</b> Se escreveres "
-        "\u201cregulamnto\u201d, o Madalena procura por \u201cregulamento\u201d e "
+        "\u201cregulamnto\u201d, o Verum procura por \u201cregulamento\u201d e "
         "avisa-te do que fez."
     )
     d.item(
@@ -902,7 +902,7 @@ def manual_utilizador() -> Documento:
     d.item("Tira o filtro de disciplina \u2014 muita coisa está em \u201cEscola\u201d.")
     d.item(
         "Se mesmo assim não aparecer, avisa: as buscas que falham são a lista do "
-        "que falta indexar, e é assim que o Madalena melhora."
+        "que falta indexar, e é assim que o Verum melhora."
     )
 
     d.titulo_seccao("6. As outras páginas")
@@ -951,7 +951,7 @@ def manual_utilizador() -> Documento:
 def termos_de_uso() -> Documento:
     d = Documento(
         "Termos de uso",
-        "Madalena Search \u2014 condi\u00e7\u00f5es de utiliza\u00e7\u00e3o do piloto",
+        "Verum Search \u2014 condi\u00e7\u00f5es de utiliza\u00e7\u00e3o do piloto",
     )
 
     d.paragrafo(
@@ -959,7 +959,7 @@ def termos_de_uso() -> Documento:
         "propósito."
     )
 
-    d.titulo_seccao("1. O que é o Madalena")
+    d.titulo_seccao("1. O que é o Verum")
     d.paragrafo(
         "Um motor de busca sobre o material que a escola já publica: o site "
         "sefo.pt e o Moodle. Encontra documentos e abre-os na página certa. A "
@@ -1018,7 +1018,7 @@ def termos_de_uso() -> Documento:
 
     d.titulo_seccao("5. O que não é garantido")
     d.item(
-        "<b>Disponibilidade.</b> O Madalena corre num computador pessoal e não "
+        "<b>Disponibilidade.</b> O Verum corre num computador pessoal e não "
         "num servidor. Pode estar desligado, em manutenção, ou simplesmente fora "
         "durante horas."
     )
@@ -1039,7 +1039,7 @@ def termos_de_uso() -> Documento:
 
     d.titulo_seccao("6. Direitos sobre o conteúdo")
     d.paragrafo(
-        "Os documentos pertencem aos seus autores e à escola. O Madalena guarda "
+        "Os documentos pertencem aos seus autores e à escola. O Verum guarda "
         "o texto para o poder procurar e uma cópia do ficheiro para o poder "
         "mostrar, ambas nesta máquina e ambas atrás do código de acesso."
     )

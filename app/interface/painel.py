@@ -195,7 +195,7 @@ def pagina(
     corpo = montadores[seccao]()
 
     return (
-        f"{estilo.cabeca(f'Madalena - {rotulo.lower()}', estilo_painel.CSS)}\n"
+        f"{estilo.cabeca(f'Verum - {rotulo.lower()}', estilo_painel.CSS)}\n"
         "<body>\n"
         '<header class="topo"><div class="topo-linha">'
         f"{estilo.marca()}"

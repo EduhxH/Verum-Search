@@ -25,7 +25,7 @@ from bs4 import BeautifulSoup
 from app.crawler.web_source import NOME_MANIFESTO, nome_ficheiro
 from app.interface.auth import carregar_env
 
-AGENTE = "MadalenaBot/0.1 (projeto escolar; sincronizacao de materiais)"
+AGENTE = "VerumBot/0.1 (projeto escolar; sincronizacao de materiais)"
 INTERVALO_PADRAO = 1.0
 TEMPO_LIMITE = 30
 
@@ -267,7 +267,7 @@ def _guardar_html(
     if principal is None or not principal.get_text(strip=True):
         relatorio.ignorar(alternativa, "pagina sem conteudo")
         return
-    marcador = f'<meta name="madalena-origem" content="{alvo}">'
+    marcador = f'<meta name="verum-origem" content="{alvo}">'
     html = f"<html><head>{marcador}</head><body>{principal}</body></html>"
     destino.mkdir(parents=True, exist_ok=True)
     guardado = nome_ficheiro(alvo.split("&")[0], ".html")

@@ -178,9 +178,18 @@ button, input, select { font: inherit; }
   display: flex; align-items: center; gap: 24px;
   min-height: 72px; padding: 12px 32px;
 }
-.marca { display: flex; align-items: center; gap: 9px; text-decoration: none; flex: none; }
-.marca img.gato { height: 30px; width: auto; }
-.marca img.nome { height: 14px; width: auto; }
+.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none; }
+.marca img.gato, .marca-grande img.gato { height: 30px; width: auto; }
+/* O nome em monoespacada espacejada, que e a mesma voz das etiquetas pequenas
+   do resto da interface. O `margin-right` negativo tira o espaco morto que o
+   `letter-spacing` deixa depois da ultima letra - sem ele a marca parece
+   descentrada para a esquerda e ninguem percebe porque. */
+.marca .nome, .marca-grande .nome {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .26em;
+  color: var(--texto); white-space: nowrap; margin-right: -.26em;
+}
+.marca-grande { display: flex; align-items: center; gap: 10px; }
 
 /* O desenho e tinta escura. Em fundo escuro inverte-se, em vez de guardar um
    segundo ficheiro que depois fica por atualizar. */
@@ -819,20 +828,22 @@ def cabeca(titulo: str, extra: str = "") -> str:
 
 
 def marca(grande: bool = False) -> str:
-    """O gato e o lettering. Em pequeno leva ao inicio; em grande e so imagem."""
-    if grande:
-        return (
-            '<div class="marca-grande">'
-            '<img class="gato" src="/estatico/gato.png" alt="">'
-            '<img class="nome" src="/estatico/lettering.png" alt="Madalena Search">'
-            "</div>"
-        )
-    return (
-        '<a class="marca" href="/">'
+    """O sigilo e o nome. Em pequeno leva ao inicio; em grande e so imagem.
+
+    O nome e **texto** e nao uma imagem, ao contrario do lettering desenhado a
+    mao que aqui estava. Tres razoes: fica nitido em qualquer ecra e em qualquer
+    tamanho, muda de cor com o tema sem precisar de um segundo ficheiro nem do
+    truque do `invert`, e e lido por um leitor de ecra como nome em vez de como
+    texto alternativo. O desenho a mao justificava a imagem; uma monoespacada
+    espacejada nao justifica.
+    """
+    marcador = (
         '<img class="gato" src="/estatico/gato.png" alt="">'
-        '<img class="nome" src="/estatico/lettering.png" alt="Madalena Search">'
-        "</a>"
+        '<span class="nome">Verum Search</span>'
     )
+    if grande:
+        return f'<div class="marca-grande">{marcador}</div>'
+    return f'<a class="marca" href="/">{marcador}</a>'
 
 
 def botao_tema() -> str:

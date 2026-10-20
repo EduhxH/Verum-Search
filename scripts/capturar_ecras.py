@@ -119,7 +119,7 @@ def main() -> None:
     if not EDGE.exists():
         raise SystemExit(f"Edge nao encontrado em {EDGE}")
 
-    sessao = input("Cookie de sessao (madalena=...): ").strip()
+    sessao = input("Cookie de sessao (verum=...): ").strip()
 
     ecras = [
         # nome, caminho, cookie, largura, altura, css extra, injeccao

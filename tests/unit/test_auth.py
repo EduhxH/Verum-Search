@@ -116,7 +116,7 @@ def test_segredo_vem_da_variavel_de_ambiente(tmp_path, monkeypatch):
 def test_env_e_lido_quando_existe(tmp_path, monkeypatch):
     _isolar(tmp_path, monkeypatch)
     env = tmp_path / "teste.env"
-    linhas = ["# comentario", 'MADALENA_SEGREDO="do-ficheiro"', ""]
+    linhas = ["# comentario", 'VERUM_SEGREDO="do-ficheiro"', ""]
     env.write_text("\n".join(linhas), encoding="utf-8")
     monkeypatch.setattr(auth, "CAMINHO_ENV", env)
     monkeypatch.setattr(auth, "_env_carregado", False)

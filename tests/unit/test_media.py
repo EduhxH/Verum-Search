@@ -5,7 +5,7 @@ import pytest
 from app.interface import media
 
 CRLF = bytes.fromhex("0d0a")
-FRONTEIRA = b"----MadalenaTeste"
+FRONTEIRA = b"----VerumTeste"
 
 PNG = bytes.fromhex("89504e470d0a1a0a") + b"resto do ficheiro"
 JPEG = bytes.fromhex("ffd8ff") + b"resto"

@@ -370,10 +370,22 @@ def _unidades_html(dados: bytes) -> list[tuple[str, str, str]]:
     return [(texto, "", "")] if texto.strip() else []
 
 
+# O nome antigo da marca continua a ser lido. Ha centenas de paginas ja
+# rastreadas com `madalena-origem` la dentro, e o id de cada documento e o hash
+# da origem: deixar de o reconhecer nao daria um erro - daria documentos sem
+# origem, ids novos, e o historico de cliques orfao de um dia para o outro. O
+# rastreio seguinte escreve o nome novo, e esta linha pode cair quando `data/raw`
+# tiver sido refeito por inteiro.
+MARCAS_DE_ORIGEM = ("verum-origem", "madalena-origem")
+
+
 def origem_declarada(dados: bytes) -> str | None:
     sopa = BeautifulSoup(dados.decode("utf-8", errors="replace"), "html.parser")
-    marca = sopa.find("meta", attrs={"name": "madalena-origem"})
-    return marca.get("content") if marca else None
+    for nome in MARCAS_DE_ORIGEM:
+        marca = sopa.find("meta", attrs={"name": nome})
+        if marca and marca.get("content"):
+            return marca.get("content")
+    return None
 
 
 def titulo_html(dados: bytes) -> str | None:

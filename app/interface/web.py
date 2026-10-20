@@ -36,7 +36,6 @@ RAIZ_DOCS = (Path("assets") / "documentos").resolve()
 # de confiar - do que tentar limpar ".." de um caminho.
 _ESTATICOS = {
     "gato.png": (RAIZ_MARCA, "image/png"),
-    "lettering.png": (RAIZ_MARCA, "image/png"),
     "icone.png": (RAIZ_MARCA, "image/png"),
     "404.png": (RAIZ_MARCA, "image/png"),
     "gato-fundo.png": (RAIZ_MARCA, "image/png"),
@@ -267,7 +266,7 @@ def _pagina(consulta: str, opcoes: str, novidades: str, corpo: str,
     fechada, e fazia a interface parecer avariada estando a funcionar bem.
     """
     return (
-        f"{estilo.cabeca('Madalena')}\n"
+        f"{estilo.cabeca('Verum')}\n"
         "<body>\n"
         '<header class="topo"><div class="topo-linha">'
         f"{estilo.marca()}"
@@ -298,7 +297,7 @@ def _pagina_entrada(erro: str = "") -> bytes:
              "responsável do projeto.</p>"
     )
     corpo = (
-        f"{estilo.cabeca('Madalena - entrar')}\n"
+        f"{estilo.cabeca('Verum - entrar')}\n"
         "<body>\n"
         '<div class="folha">'
         '<div class="folha-topo">'
@@ -308,7 +307,7 @@ def _pagina_entrada(erro: str = "") -> bytes:
         f"{som.botao()}{estilo.botao_tema()}"
         "</div></div>\n"
         '<div class="folha-meio"><div class="entrada-caixa">'
-        '<p class="olho">Madalena Search</p>'
+        '<p class="olho">Verum Search</p>'
         '<h1 class="display h-gigante">Acesso ao \u00edndice.</h1>'
         '<p class="lead">Introduz o c\u00f3digo da tua turma para pesquisar '
         "o material escolar.</p>"
@@ -792,7 +791,7 @@ def _pagina_inicial(opcoes: str, administrador: bool = False) -> str:
         for termo in _EXEMPLOS
     )
     return (
-        f"{estilo.cabeca('Madalena')}\n"
+        f"{estilo.cabeca('Verum')}\n"
         "<body>\n"
         '<header class="topo"><div class="topo-linha">'
         f"{estilo.marca()}"
@@ -802,7 +801,7 @@ def _pagina_inicial(opcoes: str, administrador: bool = False) -> str:
         '<div class="heroi-gato" aria-hidden="true" '
         "style=\"background-image:url(/estatico/gato-fundo.png)\"></div>"
         '<div class="heroi-dentro">'
-        '<p class="olho">Madalena / pesquisa escolar</p>'
+        '<p class="olho">Verum / pesquisa escolar</p>'
         '<h1 class="display h-gigante">Encontra o que a escola j\u00e1 sabe.</h1>'
         '<p class="lead">Hor\u00e1rios, fichas, regulamentos e p\u00e1ginas do site '
         "&mdash; num s\u00f3 \u00edndice, feito para chegar depressa ao que importa.</p>"
@@ -936,7 +935,7 @@ _DOCUMENTOS = (
     (
         "termos-de-uso.pdf",
         "Termos de uso",
-        "O que é o Madalena, quem pode usá-lo, e o que não é garantido "
+        "O que é o Verum, quem pode usá-lo, e o que não é garantido "
         "— disponibilidade, completude e atualidade.",
     ),
     (
@@ -1105,7 +1104,7 @@ class _Manipulador(BaseHTTPRequestHandler):
     # Por omissao o cabecalho Server dizia "BaseHTTP/0.6 Python/3.11.15". A
     # versao exata do interpretador e meio caminho andado para quem procura
     # uma falha conhecida: nao ha razao para a oferecer.
-    server_version = "Madalena"
+    server_version = "Verum"
     sys_version = ""
 
     def handle_one_request(self):
@@ -1938,7 +1937,7 @@ def iniciar(porta: int = 8080, host: str = "127.0.0.1") -> None:
     registo_servidor.anotar(
         registo_servidor.INFO, f"servidor no ar em {host}:{porta}", "arranque"
     )
-    print(f"Madalena no ar em http://{host}:{porta} (Ctrl+C encerra)")
+    print(f"Verum no ar em http://{host}:{porta} (Ctrl+C encerra)")
     try:
         servidor.serve_forever()
     except KeyboardInterrupt:

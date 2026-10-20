@@ -13,7 +13,7 @@ from urllib.robotparser import RobotFileParser
 import requests
 from bs4 import BeautifulSoup
 
-AGENTE = "MadalenaBot/0.1 (motor de busca educacional escolar)"
+AGENTE = "VerumBot/0.1 (motor de busca educacional escolar)"
 INTERVALO_PADRAO = 1.0
 MAX_PAGINAS_PADRAO = 300
 PROFUNDIDADE_PADRAO = 3
@@ -127,7 +127,7 @@ def _escrever_manifesto(destino: Path, origens: dict[str, str]) -> None:
 
 
 def _guardar(destino: Path, url: str, html: str) -> None:
-    marcador = f'<meta name="madalena-origem" content="{url}">'
+    marcador = f'<meta name="verum-origem" content="{url}">'
     if "<head>" in html.lower():
         indice = html.lower().index("<head>") + len("<head>")
         html = html[:indice] + marcador + html[indice:]

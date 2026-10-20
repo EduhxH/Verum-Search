@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-    Registra (ou remove) as tarefas agendadas da Madalena Search no Windows.
+    Registra (ou remove) as tarefas agendadas da Verum Search no Windows.
 
 .DESCRIPTION
-    Cinco tarefas, todas em \Madalena\ no Agendador de Tarefas:
+    Cinco tarefas, todas em \Verum\ no Agendador de Tarefas:
 
         conteudos-manha   07:30   todos os dias
         conteudos-tarde   14:30   todos os dias
@@ -22,7 +22,7 @@
     proposito: se a escola mudar o dia de publicacao, muda-se uma constante e
     nao se toca aqui.
 
-    As tarefas expiram a 30 de setembro de 2026 (ver -Ate). Isto e deliberado:
+    As tarefas expiram a 31 de dezembro de 2026 (ver -Ate). Isto e deliberado:
     um programa que bate no servidor da escola nao deve ficar a correr para
     sempre sem ninguem reparar. A 1 de outubro ha de ser uma decisao, nao um
     esquecimento.
@@ -42,7 +42,7 @@
 
 [CmdletBinding()]
 param(
-    [datetime] $Ate = '2026-09-30 23:59',
+    [datetime] $Ate = '2026-12-31 23:59',
     [int]      $Porta = 8080,
     [switch]   $Remover
 )
@@ -50,7 +50,7 @@ param(
 $ErrorActionPreference = 'Stop'
 
 $raiz    = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
-$pasta   = '\Madalena\'
+$pasta   = '\Verum\'
 $tarefas = @(
     @{ Nome = 'conteudos-manha'; Passo = 'conteudos'; Etiqueta = 'manha'; As = '07:30' }
     @{ Nome = 'conteudos-tarde'; Passo = 'conteudos'; Etiqueta = 'tarde'; As = '14:30' }
@@ -139,7 +139,7 @@ foreach ($tarefa in $tarefas) {
         try {
             $registada = Register-ScheduledTask -TaskPath $pasta -TaskName $tarefa.Nome `
                 -Action $accao -Trigger $gatilho -Settings $opcoes -Principal $principal `
-                -Description "Madalena Search - $($tarefa.Nome). Criada por scripts\agendar.ps1." `
+                -Description "Verum Search - $($tarefa.Nome). Criada por scripts\agendar.ps1." `
                 -Force
             break
         } catch {
@@ -185,7 +185,7 @@ foreach ($principal in $principais) {
         $registada = Register-ScheduledTask -TaskPath $pasta -TaskName $VIGIA `
             -Action $accaoVigia -Trigger @($aoEntrar, $deCincoEmCinco) `
             -Settings $opcoesVigia -Principal $principal `
-            -Description 'Madalena Search - mantem o servidor e o tunel no ar. Criada por scripts\agendar.ps1.' `
+            -Description 'Verum Search - mantem o servidor e o tunel no ar. Criada por scripts\agendar.ps1.' `
             -Force
         break
     } catch { $ultimo = $_ }

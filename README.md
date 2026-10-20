@@ -1,4 +1,4 @@
-# MADALENA
+# VERUM
 
 <div align="center">
 
@@ -6,7 +6,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/marca/logo-branco.png">
-  <img src="assets/marca/logo.png" width="180" alt="Madalena Search" />
+  <img src="assets/marca/logo.png" width="180" alt="Verum Search" />
 </picture>
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
@@ -19,7 +19,7 @@
 [![Status](https://img.shields.io/badge/Status-v1.0%20Beta-2ea043?style=for-the-badge)]()
 [![Tests](https://img.shields.io/badge/Tests-727%20passing-2ea043?style=for-the-badge)]()
 
- The name **Madalena** was inspired by the name of my beloved girlfriend.
+ The name **Verum** was inspired by the name of my beloved girlfriend.
 
 
 </div>
@@ -31,7 +31,7 @@
 > Every piece the beta needs is built, measured and documented: the engine, the interface, the legal documents, and a security audit. What happens next is not more building — it is watching real students use it.
 
 > [!NOTE]
-> **Scope:** Madalena is a vertical search engine for one school. Every component — crawler, tokenizer, inverted index, ranking, query processing — is implemented from scratch, and every design decision is backed by a measurement on the real corpus. It will never call Google, Meta or Bing search APIs.
+> **Scope:** Verum is a vertical search engine for one school. Every component — crawler, tokenizer, inverted index, ranking, query processing — is implemented from scratch, and every design decision is backed by a measurement on the real corpus. It will never call Google, Meta or Bing search APIs.
 
 ---
 
@@ -81,7 +81,7 @@ block a class of seven, and each would have added surface to something already m
 
 ## 🧩 About
 
-Madalena is a vertical search engine written in Python, built for the students of one school. School material is scattered across Moodle, Teams, the public site and WhatsApp groups; Madalena puts one search box in front of all of it.
+Verum is a vertical search engine written in Python, built for the students of one school. School material is scattered across Moodle, Teams, the public site and WhatsApp groups; Verum puts one search box in front of all of it.
 
 It crawls the school website (respecting `robots.txt`, rate limits and depth), ingests local course material (PDF, DOCX, PPTX, plain text, including files inside ZIP archives), tokenizes and normalizes the text, builds an inverted index with term frequencies, and persists everything to SQLite.
 
@@ -357,7 +357,7 @@ tunnel bound to your own domain is the durable option.
 **8. Measure the search before changing it**
 
 ```bash
-.venv\Scripts\python scriptsvaliar_busca.py --detalhe
+.venv\Scripts\python scripts\avaliar_busca.py --detalhe
 ```
 
 33 queries taken from the real usage log, each with a known-correct document.
@@ -368,11 +368,11 @@ did not.
 Save a baseline before a change and compare after:
 
 ```bash
-.venv\Scripts\python scriptsvaliar_busca.py --guardar antes.json
+.venv\Scripts\python scripts\avaliar_busca.py --guardar antes.json
 ```
 
 ```bash
-.venv\Scripts\python scriptsvaliar_busca.py --comparar antes.json
+.venv\Scripts\python scripts\avaliar_busca.py --comparar antes.json
 ```
 
 The comparison lists what moved **per query**, not just the average — an
@@ -426,7 +426,7 @@ Anything found appears in the web interface, on the search page and at
 powershell -ExecutionPolicy Bypass -File scripts\agendar.ps1
 ```
 
-Five Windows scheduled tasks, all under `\Madalena\`:
+Five Windows scheduled tasks, all under `\Verum\`:
 
 | Task | When | What it does |
 |---|---|---|
